@@ -60,6 +60,10 @@ urlpatterns += patterns('',
 
     # MEZZANINE'S URLS
     # ----------------
+
+    url(r'^subscribe$', 'main.views.subscribe', name='subscribe'),
+
+
     # ADD YOUR OWN URLPATTERNS *ABOVE* THE LINE BELOW.
     # ``mezzanine.urls`` INCLUDES A *CATCH ALL* PATTERN
     # FOR PAGES, SO URLPATTERNS ADDED BELOW ``mezzanine.urls``
