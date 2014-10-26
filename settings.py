@@ -354,9 +354,14 @@ except ImportError as e:
 
 
 ##################
-#  #
+# Custom Settings #
 ##################
 
+SITE_TITLE = 'Tsung Hung'
+
+SITE_TAGLINE = None
+
+GOOGLE_ANALYTICS_ID = 'UA-56100643-1'
 
 ####################
 # DYNAMIC SETTINGS #
