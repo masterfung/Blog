@@ -86,7 +86,7 @@ urlpatterns += patterns('',
     # need to use the ``SITE_PREFIX`` setting as well.
 
     # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
-
+    # url(r'^$', "main.views.home", name="home"),
 )
 
 # Adds ``STATIC_URL`` to the context of error pages, so that error

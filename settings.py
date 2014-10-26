@@ -77,7 +77,7 @@ from __future__ import absolute_import, unicode_literals
 
 # If True, the south application will be automatically added to the
 # INSTALLED_APPS setting.
-USE_SOUTH = True
+USE_SOUTH = False
 
 
 ########################
@@ -186,6 +186,9 @@ DATABASES = {
 
 import os
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
 # Full filesystem path to the project.
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -206,6 +209,8 @@ STATIC_URL = "/static/"
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
+
+# STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -248,8 +253,9 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    #"mezzanine.accounts",
+    # "mezzanine.accounts",
     #"mezzanine.mobile",
+    'main'
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -345,6 +351,11 @@ try:
 except ImportError as e:
     if "local_settings" not in str(e):
         raise e
+
+
+##################
+#  #
+##################
 
 
 ####################
