@@ -1,4 +1,5 @@
 from __future__ import absolute_import, unicode_literals
+import os
 
 ######################
 # MEZZANINE SETTINGS #
@@ -103,7 +104,7 @@ ALLOWED_HOSTS = []
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = None
+TIME_ZONE = 'America/Los_Angeles'
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
@@ -165,17 +166,13 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         # DB name or path to database file if using sqlite3.
-        "NAME": "",
-        # Not used with sqlite3.
-        "USER": "",
-        # Not used with sqlite3.
-        "PASSWORD": "",
-        # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "",
-        # Set to empty string for default. Not used with sqlite3.
-        "PORT": "",
+        'NAME': os.environ.get('RDS_DB_NAME'),
+        'USER': os.environ.get('RDS_USERNAME'),
+        'PASSWORD': os.environ.get('RDS_PASSWORD'),
+        'HOST': os.environ.get('RDS_HOSTNAME'),
+        'PORT': os.environ.get('RDS_PORT'),
     }
 }
 
@@ -362,6 +359,30 @@ SITE_TITLE = 'Tsung Hung'
 SITE_TAGLINE = None
 
 GOOGLE_ANALYTICS_ID = 'UA-56100643-1'
+#
+# AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+#
+# AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+#
+# AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
+#
+# AWS_AUTO_CREATE_BUCKET = True
+#
+# AWS_HEADERS = {
+#     "Cache-Control": "public, max-age=86400",
+# }
+#
+# AWS_S3_FILE_OVERWRITE = False
+#
+# AWS_QUERYSTRING_AUTH = False
+#
+# AWS_S3_SECURE_URLS = True
+#
+# AWS_REDUCED_REDUNDANCY = False
+#
+# AWS_IS_GZIPPED = False
+#
+# AWS_PRELOAD_METADATA = True
 
 ####################
 # DYNAMIC SETTINGS #
